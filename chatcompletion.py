@@ -1,0 +1,17 @@
+#Note: The openai-python library support for Azure OpenAI is in preview.
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = "https://chat-engine.openai.azure.com/"
+openai.api_version = "2023-09-15-preview"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+response = openai.Completion.create(
+  engine="chat-engine",
+  prompt="Write a job description for the following job title: 'AI Evangelist'. The job description should outline the main responsibilities of the role, list the required qualifications, highlight unique benefits like flexible working hours, and provide information on how to apply. You can use the following template to structure your job description:\n\nIntroduction:\n\n[Begin your job description with a few sentences that provide context for the role, describe your company, and outline the overall purpose of the job.]\n\nCompany Overview:\n\n[Provide a brief overview of your company and its mission statement.]\n\nJob Title: AI Evangelist\n\nReporting To: Head of AI\n\nJob Purpose:\n\n[Explain the main purpose of the role and how it fits into the company's overall strategy. For example:]\n\nAs AI Evangelist, you will be responsible for spreading awareness about our company's AI capabilities and ensuring that our clients and partners understand the value of our products and services. You will be the face of our AI division, attending industry events, speaking at conferences, and engaging with potential customers both online and offline.\n\nResponsibilities:\n\n[Provide a bullet-point list of the primary responsibilities of the role. For example:]\n\nDevelop and execute an AI evangelism strategy that aligns with our company's vision and mission.\n\nCreate and curate content about AI trends, best practices, and emerging technologies.\n\nLead workshops and training sessions to help customers and partners understand how to use our AI products and services.\n\nCollaborate with cross-functional teams to ensure that our AI offerings are integrated into our overall product portfolio.\n\nIdentify new business opportunities and develop relationships with potential partners.\n\nQualifications:\n\n[List the qualifications required for the role, such as education, experience, and skills. For example:]\n\nBachelor's or Master's degree in Computer Science, Artificial Intelligence, or a related field.\n\n5+ years of experience in a technical sales or product marketing role.\n\nStrong technical skills and deep knowledge of AI technologies and trends.\n\nExcellent communication and presentation skills.\n\nSelf-starter with a proven track record of developing and executing successful marketing campaigns.\n\nBenefits:\n\n[A few sentences about the unique benefits of working at your company. For example:]\n\nFlexible working hours and a remote-friendly work environment.\n\nProfessional development opportunities and a commitment to continual learning.\n\nA supportive and inclusive culture that values diversity and promotes work-life balance.\n\nHow to Apply:\n\n[Include instructions on how to apply for the role. This could include a link to an online application form, an email address for submitting a resume and cover letter, or instructions for contacting a specific person within your organization. For example:]\n\nIf you are interested in applying for this role, please send your resume and cover letter to [email protected]. We look forward to hearing from you!<|im_end|>",
+  temperature=1,
+  max_tokens=600,
+  top_p=1,
+  frequency_penalty=0,
+  presence_penalty=0,
+  stop=None)
