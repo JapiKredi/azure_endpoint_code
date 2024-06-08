@@ -7,6 +7,7 @@ deployment = os.environ["CHAT_COMPLETIONS_DEPLOYMENT_NAME"]
 search_endpoint = os.environ["SEARCH_ENDPOINT"]
 search_index = os.environ["SEARCH_INDEX"]
       
+      
 token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
       
 client = AzureOpenAI(
